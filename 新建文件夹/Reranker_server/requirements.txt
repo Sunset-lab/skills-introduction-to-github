@@ -1,0 +1,17 @@
+beautifulsoup4
+datasets==2.19.1
+numpy==1.26.4 
+pandas==2.2.2
+pillow==10.3.0
+protobuf==3.20.3 
+pymilvus==2.2.3
+pyyaml==6.0.1
+scikit-learn==1.4.2    
+scipy==1.13.0  
+sentence-transformers==2.7.0
+sentencepiece==0.2.0
+tqdm
+transformers==4.40.2 
+wheel==0.43.0
+flask==2.0.3
+werkzeug==2.0.3

@@ -1,0 +1,46 @@
+系统要求
+Windows 10 64位（专业版/企业版/教育版），版本 1903 或更高，或 Windows 11。
+启用 Hyper-V 或 WSL 2（Windows 10 家庭版需使用 WSL 2）。至少 4GB 内存，建议 8GB 或更高。
+确保 BIOS 中已开启 虚拟化支持（Intel VT-x / AMD-V）
+
+步骤1：
+检查虚拟化是否开启：
+打开任务管理器（Ctrl+Shift+Esc） → 切换到“性能”选项卡 → 查看“虚拟化”是否显示“已启用”。
+若未启用，需进入 BIOS 设置开启虚拟化（不同品牌电脑进入 BIOS 的快捷键不同，一般为 F2、Del 或 Esc）。
+
+
+步骤 2：根据 Windows 版本选择安装方式
+A. Windows 10 专业版/企业版/教育版 或 Windows 11
+启用 Hyper-V 和容器功能：
+打开 PowerShell（管理员身份），运行：
+Enable-WindowsOptionalFeature-Online -FeatureName Microsoft-Hyper-V -All
+Enable-WindowsOptionalFeature-Online -FeatureName Containers -All
+重启电脑。
+
+安装 WSL 2（推荐）（Docker Desktop 默认使用 WSL 2）：
+以管理员身份运行 PowerShell，执行：
+wsl --install
+重启电脑后，设置 WSL 2 为默认版本：
+wsl --set-default-version 2
+
+
+
+步骤 3：安装 Docker Desktop
+本地安装包，直接运行，双击 .exe 文件。
+安装过程中勾选以下选项：
+✅ 使用 WSL 2 代替 Hyper-V（推荐）。✅ 将 Docker Desktop 快捷方式添加到桌面。
+完成安装：
+安装完成后，点击 Close and restart 重启电脑。
+
+步骤 4：启动并验证 Docker
+启动 Docker Desktop：
+双击桌面图标启动 Docker Desktop。
+首次启动会提示接受服务条款，登录 Docker 账户（可选跳过）。
+验证安装：
+打开 PowerShell 或命令提示符，运行：
+docker--version
+docker run hello-world
+若看到 Hello from Docker! 表示安装成功。
+
+
+
